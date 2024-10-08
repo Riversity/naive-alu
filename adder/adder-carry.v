@@ -1,28 +1,22 @@
-/* ACM Class System (I) Fall Assignment 1 
- *
- *
- * Implement your naive adder here
- * 
- * GUIDE:
- *   1. Create a RTL project in Vivado
- *   2. Put this file into `Sources'
- *   3. Put `test_adder.v' into `Simulation Sources'
- *   4. Run Behavioral Simulation
- *   5. Make sure to run at least 100 steps during the simulation (usually 100ns)
- *   6. You can see the results in `Tcl console'
- *
- */
-
 module adder(
-  // TODO: Write the ports of this module here
-  //
-  // Hint: 
-  //   The module needs 4 ports, 
-  //     the first 2 ports are 16-bit unsigned numbers as the inputs of the adder
-  //     the third port is a 16-bit unsigned number as the output
-  //     the forth port is a one bit port as the carry flag
-  // 
+  input  [15:0]  a,
+  input  [15:0]  b,
+  output [15:0]  sum,
+  output carry
 );
-  // TODO: Implement this module here
-  
+  wire c[16:0];
+  wire G[15:0];
+  wire P[15:0];
+  genvar i;
+  assign c[0] = 0;
+  generate
+    for(i = 0; i <= 15; i = i + 1) begin
+      assign G[i] = a[i] & b[i];
+      assign P[i] = a[i] ^ b[i];
+      assign c[i+1] = G[i] | P[i] & c[i];
+      assign sum[i] = P[i] ^ c[i];
+    end
+  endgenerate
+  assign carry = c[16];
+
 endmodule
