@@ -14,15 +14,15 @@
  */
 
 module adder(
-	// TODO: Write the ports of this module here
-	//
-	// Hint: 
-	//   The module needs 4 ports, 
-	//     the first 2 ports are 16-bit unsigned numbers as the inputs of the adder
-	//     the third port is a 16-bit unsigned number as the output
-	//	   the forth port is a one bit port as the carry flag
-	// 
+  // TODO: Write the ports of this module here
+  //
+  // Hint: 
+  //   The module needs 4 ports, 
+  //     the first 2 ports are 16-bit unsigned numbers as the inputs of the adder
+  //     the third port is a 16-bit unsigned number as the output
+  //     the forth port is a one bit port as the carry flag
+  // 
 );
-	// TODO: Implement this module here
-	
+  // TODO: Implement this module here
+  
 endmodule
